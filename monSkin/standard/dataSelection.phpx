@@ -1,0 +1,30 @@
+<?php
+
+header('Content-Type: application/json'); //Pour définir le type de données envoyée (ici du JSON)
+
+include ("fonctions.php");
+
+//echo '<div>' . $_POST['cbInt'] '</div>';
+
+	
+	
+		
+
+	$tStampDebut = toTimestamp($_POST['dateDebut']);//converti les dates
+	$tStampFin = toTimestamp($_POST['dateFin']);	
+   //en timestamp
+	if($tStampDebut == $tStampFin)
+		{
+
+		$tStampDebut -= 7200;
+	
+		}
+$tStampDebut = 1454869200;
+ $tStampFin = 1454877900;
+	$arrInterval = getInterval($tStampDebut, $tStampFin); //recuperation des donnees de la BDD
+	
+	echo json_encode($arrInterval, JSON_NUMERIC_CHECK);
+
+
+
+

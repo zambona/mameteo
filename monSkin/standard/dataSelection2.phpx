@@ -1,0 +1,50 @@
+<?php
+
+header('Content-Type: application/json'); //Pour définir le type de données envoyée (ici du JSON)
+
+require ("fonctions.php");
+
+ 
+//print_r($_POST['dateDebut']);
+
+if(!(is_numeric($_POST['dateDebut']))){
+
+	$tStampDebut = toTimestamp($_POST['dateDebut']);//converti les dates
+	$tStampFin = toTimestamp($_POST['dateFin']);
+		//en timestamp
+   }else{
+
+   		$tStampDebut = $_POST['dateDebut'];
+   		$tStampFin = $_POST['dateFin'];
+   }
+//echo $tStampDebut . $tStampFin;
+
+
+	if(($tStampFin == $tStampDebut) && ($tStampFin == time()))
+	{
+
+		$tStampFin = time() - 300;
+		$tStampDebut = time() - 7200;
+		
+	}
+		//echo $tStampDebut . $tStampFin;
+	if($tStampFin == $tStampDebut)
+	{
+		$tStampFin += 80000;
+	}
+
+//echo 'debut ' . $tStampDebut . ' fin' . $tStampFin . time();
+
+/*$tStampDebut = 1454869200;
+ $tStampFin = 1454877900;*/
+
+ 
+	$arrInterval = getInterval2($tStampDebut, $tStampFin);
+	
+
+	
+	
+	echo json_encode($arrInterval, JSON_NUMERIC_CHECK); //retour à la requete AJAXtab.js en json
+  
+
+?>

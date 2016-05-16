@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<title>Hist temp</title>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+  <link rel="stylesheet" href="w3.css">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+	<!--<link href="monSkin.css" rel="stylesheet" type="text/css" />
+	<link href="jquery.timepicker.css" rel="stylesheet" type="text/css" />-->
+
+<?php include("header.php"); ?>
+<?php $instantT = date("d/m/Y");?>
+<body class="">
+<div class="w3-pale-blue">
+<div class="w3-row  w3-padding-jumbo w3-margin-jumbo">    
+	<div style="height: 100px"></div>
+			<div class="w3-col m1"></div>
+				<div class="w3-container w3-center w3-col m9">
+					<div class="w3-container w3-card-2 w3-center" style="height: 400px;">
+						<div id="container" class="w3-animate-opacity w3-container w3-center"></div>
+					</div>
+				</div>
+			    	<div class="w3-center w3-col m2 w3-right w3-card w3-light-grey">
+			        	<form id ="formDureeTemp" class="w3-form">
+			          		<div class="w3-input-group"> 
+			            		<label class="w3-label w3-text-black w3-center" for="from">DEBUT <i class="fa fa-calendar"></i></label>
+			            		<input id="dateDebut" class="w3-input w3-border w3-text-black w3-center" value="<?php echo $instantT;?>" type="date" name="debutPeriode">
+			          		</div>
+			      			<div class="w3-input-group"> 
+			        			<label class="w3-label w3-text-black w3-center" for="to">FIN <i class="fa fa-calendar"></i></label>
+			        			<input id="dateFin"class="w3-input w3-border w3-center" value="<?php echo $instantT;?>" type="date" name="debutPeriode">
+			      			</div>
+			      			<div class="w3-input-group"> 
+						        <input id="cbInt" class="w3-check" type="checkbox" checked="checked">
+						        <label class="w3-validate">T° ext</label>
+						        <input id="cbExt" class="w3-check" type="checkbox">
+						        <label class="w3-validate ">T° int</label>
+					      	</div>
+			      			<button id="submit" class="w3-btn w3-wide w3-round-large" type="submit">GO! <i class="fa fa-play-circle-o"></i></button>
+			      		</form>
+			      	</div>
+	
+</div>
+
+
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</div>
+<footer class="w3-container w3-blue-grey">
+      <h5>Footer</h5>
+      <p>Crédits</p>
+    </footer>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<!--<script src="jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
+<script src="jquery-ui-1.11.4.custom/jquery-ui.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<!--<script src="Highcharts-4-2/js/highcharts.js"></script>-->
+<script src="http://code.highcharts.com/highcharts-more.js"></script>
+<!--//<script src="Highcharts-4-2/js/highcharts-more.js"></script>-->
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<!--<script src="jspresentation.js"></script>
+
+<script src="jquery.timepicker.min.js"></script>-->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+<script src="AJAXtAB.js"></script>
+
+<script>
+  $.datepicker.regional['fr'] = {
+  closeText: 'Fermer',
+  prevText: 'Précédent',
+  nextText: 'Suivant',
+  currentText: 'Aujourd\'hui',
+  monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
+  monthNamesShort: ['Janv.','Févr.','Mars','Avril','Mai','Juin','Juil.','Août','Sept.','Oct.','Nov.','Déc.'],
+  dayNames: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'],
+  dayNamesShort: ['Dim.','Lun.','Mar.','Mer.','Jeu.','Ven.','Sam.'],
+  dayNamesMin: ['D','L','M','M','J','V','S'],
+  weekHeader: 'Sem.',
+  dateFormat: 'dd/mm/yy',
+  firstDay: 1,
+  isRTL: false,
+  showMonthAfterYear: false,
+  yearSuffix: ''};
+
+$.datepicker.setDefaults($.datepicker.regional['fr']);
+
+  $(function() {
+    $("#dateDebut").datepicker(
+    	{
+    		/*showOn: "button",
+      buttonImage: "images/calendar.gif",
+      buttonImageOnly: true,*/
+      defaultDate: "+1w",
+      changeMonth: true,
+      numberOfMonths: 1,
+      onClose: function( selectedDate ) {
+        $( "#dateFin" ).datepicker( "option", "minDate", selectedDate );
+      }
+    	});
+	});
+  $(function() {
+    $("#dateFin").datepicker(
+    	{
+    		/*showOn: "button",
+	      buttonImage: "images/calendar.gif",
+	      buttonImageOnly: true,*/
+	      defaultDate: "+1w",
+      changeMonth: true,
+      numberOfMonths: 1,
+      onClose: function( selectedDate ) {
+        $( "#dateDebut" ).datepicker( "option", "maxDate", selectedDate );
+      }
+    	});
+});
+</script>
+
+</div>
+<?php include("footer.php");?>
+
+</body>
+</html> 

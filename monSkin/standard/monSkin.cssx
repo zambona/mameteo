@@ -1,0 +1,255 @@
+/*{
+	border: 1px solid;
+}/
+/* Set the height of the grid so that left and right col can be 100% (adjust as needed) */
+.w3-row {height: auto}
+    
+/* Set a 100% height to left and right col */
+.w3-col.m2, w3-col.m2 {height: 100%;}
+    
+/* On small screens, set grid height to 'auto' */
+@media screen and (max-width: 601px) {
+  .w3-row {height:auto;} 
+#t,#p,#pr,#v {
+
+	
+}
+body {
+    min-width: 520px;
+    background-color: #ecf0f1;
+  }
+
+  
+  #iconTemp{
+  	position: absolute;
+  	left: 20px;
+  	top: 10px;
+  	z-index: -1;
+  }
+#headernav{
+	align-items: justify;
+}
+#timer{
+	float: right;
+	width: 25%;
+	height: 60px;
+	margin: auto;
+	color: white;
+	border: 1px solid;
+	border-radius: 80px;
+	text-align: center;
+	line-height: 80px;
+	background: #990000;
+	font-size: 20px;
+}
+#tIE{
+	height:60%;
+	font-size: 8px;
+	margin-top: auto;
+}
+#clock{
+float: left;
+
+margin: auto;
+}
+/*button{
+	size: 2px;
+	margin-left: 35%;
+}*/
+#datepicker{
+	color:red;
+}
+/*#container{
+	width:80%;
+	height:400px;
+	
+}*/
+#courant {
+   border-collapse: collapse;
+  /*// border: 1px solid #99B2FF;*/
+   border-radius: 12px;
+  background-color: #77B2FF;
+}
+#tempDay{
+	color: white;
+	border : solid 2px #AA88AA;	
+	background-color: #	AAAAFF;
+	text-shadow: 0.5px 1px ;
+	text-decoration-line: 2px;	
+	border-radius: 3px;
+	padding: 10px 0px 0px 10px;
+
+}
+#brand{
+	background-color: #23F065;
+	color: black;
+
+}
+#formDureeTemp{
+	width : 30%;
+	margin: auto;
+	font-size: 11px;
+	
+}
+#formDureePress {
+	width : 30%;
+	margin: auto;
+	font-size: 11px;	
+}
+#formDureePrecip {
+	width : 30%;
+	margin: auto;
+	font-size: 11px;	
+}
+legend > p{
+	text-align: center;
+}
+fieldset { 
+    display: block;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-top: 0.35em;
+    padding-bottom: 0.625em;
+    padding-left: 0.75em;
+    padding-right: 1em;
+    border: 2px groove blue;
+}
+legend{
+
+    display: block;
+    padding-left: 10px;
+    padding-right: 2px;
+    border: none;
+
+}
+input[value]{
+	text-align: center;
+	color: grey;
+	font-style: italic;
+
+}
+label[name="p"]{
+	
+	text-align: center;
+}
+label[name="p1"]{
+	text-align: center;
+}
+.center{
+	margin: auto;
+	width: 100%;
+}
+
+input[placeholder="jj/mm/aaaa"]{
+	text-align: center;
+
+}
+div[class="w3-col m2"]{
+	background-color: red;
+	opacity:0.5;
+}
+#apercu{
+	width:16.5%;
+}
+div[class="portlet"]{
+	font-size: 10px;
+}
+.column {
+    width: 17px;
+    float: left;
+    padding-bottom: 100px;
+   
+  }
+  .portlet {
+    margin: 0 1em 1em 0;
+    padding: 0.3em;
+  }
+  .portlet-header {
+    padding: 0.2em 0.3em;
+    margin-bottom: 0.5em;
+    position: relative;
+  }
+  .portlet-toggle {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -8px;
+  }
+  .portlet-content {
+    padding: 0.4em;
+  }
+  .portlet-placeholder {
+    border: 1px dotted black;
+    margin: 0 1em 1em 0;
+    height: 50px;
+  }
+
+  
+
+/*#cbInt{
+	float: right;
+	
+}
+#cbExt{
+	float: left;
+}*/
+
+
+
+#animate-area	{ 
+	width: 560px; 
+	height: 400px; 
+	background-image: url(bg-clouds.png);
+	background-position: 0px 0px;
+	background-repeat: repeat-x;
+
+	animation: animatedBackground 40s linear infinite;
+		animation: animatedBackground 40s linear infinite;
+	-ms-animation: animatedBackground 40s linear infinite;
+	-moz-animation: animatedBackground 40s linear infinite;
+	-webkit-animation: animatedBackground 40s linear infinite;
+}
+@keyframes animatedBackground {
+	from { background-position: 0 0; }
+	to { background-position: 100% 0; }
+}
+.rouge{
+	background-color: #e74c3c;
+	
+}
+.bleu{
+	background-color: #2980b9;
+}
+.vert{
+	background-color: #27ae60;
+}
+.jaune{
+	background-color: #f1c40f;
+}
+.big{
+	font-size: 180%;
+}
+.navi{
+	background-color: #34495e;
+	color: white;
+	border-radius: 0px;
+}
+.chartDiv{
+	border-style:  : solid 2px black;
+	border-radius: 8px;
+}
+#textRed{
+	color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+

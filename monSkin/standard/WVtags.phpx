@@ -1,0 +1,442 @@
+<?php
+/*
+ File: WVtags.phpx
+
+ Purpose: load wview variables into a $WX[] array for use with the Canada/World/USA template sets
+
+ Instructions:  
+ Save this page as WVtags.phpx and place in your /etc/wview/html directory as WVtags.phpx
+ 
+ Edit your /etc/wview/html-templates.conf file and add:
+ 
+ # tags file for Saratoga-Weather V3 template set
+ WVtags.phpx
+ 
+ 
+ 
+ 
+
+ Author: Ken True - webmaster@saratoga-weather.org
+
+ (created by gen-WVtags.php - V1.00 - 23-Jun-2012)
+
+ These tags generated on 2012-06-25 03:06:07 GMT
+   From tags.txt updated 2012-06-25 02:06:24 GMT
+
+*/
+// --------------------------------------------------------------------------
+
+// allow viewing of generated source
+
+if (isset($_REQUEST["sce"]) and strtolower($_REQUEST["sce"]) == "view" ) {
+//--self downloader --
+   $filenameReal = __FILE__;
+   $download_size = filesize($filenameReal);
+   header("Pragma: public");
+   header("Cache-Control: private");
+   header("Cache-Control: no-cache, must-revalidate");
+   header("Content-type: text/plain");
+   header("Accept-Ranges: bytes");
+   header("Content-Length: $download_size");
+   header("Connection: close");
+   
+   readfile($filenameReal);
+   exit;
+}
+$WXsoftware = 'WV';  
+$defsFile = 'WV-defs.php';  // filename with $varnames = $WX['WV-varnames']; equivalents
+ 
+$rawdatalines = '
+wviewVersion|<!--wviewVersion-->:|:
+wviewUpTime|<!--wviewUpTime-->:|:
+stationName|<!--stationName-->:|:
+stationType|<!--stationType-->:|:
+stationCity|<!--stationCity-->:|:
+stationState|<!--stationState-->:|:
+stationElevation|<!--stationElevation-->:|:
+stationLatitude|<!--stationLatitude-->:|:
+stationLongitude|<!--stationLongitude-->:|:
+localRadarURL|<!--localRadarURL-->:|:
+localForecastURL|<!--localForecastURL-->:|:
+tempUnit|<!--tempUnit-->:|:
+humUnit|<!--humUnit-->:|:
+windUnit|<!--windUnit-->:|:
+barUnit|<!--barUnit-->:|:
+rateUnit|<!--rateUnit-->:|:
+rainUnit|<!--rainUnit-->:|:
+airDensityUnit|<!--airDensityUnit-->:|:
+cumulusBaseUnit|<!--cumulusBaseUnit-->:|:
+stationDate|<!--stationDate-->:|:
+stationDateMetric|<!--stationDateMetric-->:|:
+stationTime|<!--stationTime-->:|:
+stationTimeNoSecs|<!--stationTimeNoSecs-->:|:
+sunriseTime|<!--sunriseTime-->:|:
+sunsetTime|<!--sunsetTime-->:|:
+middayTime|<!--middayTime-->:|:
+dayLength|<!--dayLength-->:|:
+civilriseTime|<!--civilriseTime-->:|:
+civilsetTime|<!--civilsetTime-->:|:
+astroriseTime|<!--astroriseTime-->:|:
+astrosetTime|<!--astrosetTime-->:|:
+moonriseTime|<!--moonriseTime-->:|:
+moonsetTime|<!--moonsetTime-->:|:
+insideTemp|<!--insideTemp-->:|:
+insideHumidity|<!--insideHumidity-->:|:
+outsideTemp|<!--outsideTemp-->:|:
+windChill|<!--windChill-->:|:
+intervalAvgWindChill|<!--intervalAvgWindChill-->:|:
+outsideHumidity|<!--outsideHumidity-->:|:
+outsideHeatIndex|<!--outsideHeatIndex-->:|:
+apparentTemp|<!--apparentTemp-->:|:
+windDirection|<!--windDirection-->:|:
+windDirectionDegrees|<!--windDirectionDegrees-->:|:
+windSpeed|<!--windSpeed-->:|:
+intervalAvgWindSpeed|<!--intervalAvgWindSpeed-->:|:
+windGustSpeed|<!--windGustSpeed-->:|:
+windGustDirectionDegrees|<!--windGustDirectionDegrees-->:|:
+windBeaufortScale|<!--windBeaufortScale-->:|:
+intervalAvgBeaufortScale|<!--intervalAvgBeaufortScale-->:|:
+outsideDewPt|<!--outsideDewPt-->:|:
+barometer|<!--barometer-->:|:
+baromtrend|<!--baromtrend-->:|:
+stationPressure|<!--stationPressure-->:|:
+altimeter|<!--altimeter-->:|:
+rainRate|<!--rainRate-->:|:
+dailyRain|<!--dailyRain-->:|:
+dailyRainMM|<!--dailyRainMM-->:|:
+monthlyRain|<!--monthlyRain-->:|:
+stormRain|<!--stormRain-->:|:
+stormStart|<!--stormStart-->:|:
+totalRain|<!--totalRain-->:|:
+rainSeasonStart|<!--rainSeasonStart-->:|:
+UV|<!--UV-->:|:
+ET|<!--ET-->:|:
+solarRad|<!--solarRad-->:|:
+moonPhase|<!--moonPhase-->:|:
+airDensity|<!--airDensity-->:|:
+cumulusBase|<!--cumulusBase-->:|:
+extraTemp1|<!--extraTemp1-->:|:
+extraTemp2|<!--extraTemp2-->:|:
+extraTemp3|<!--extraTemp3-->:|:
+soilTemp1|<!--soilTemp1-->:|:
+soilTemp2|<!--soilTemp2-->:|:
+soilTemp3|<!--soilTemp3-->:|:
+soilTemp4|<!--soilTemp4-->:|:
+leafTemp1|<!--leafTemp1-->:|:
+leafTemp2|<!--leafTemp2-->:|:
+soilMoist1|<!--soilMoist1-->:|:
+soilMoist2|<!--soilMoist2-->:|:
+leafWet1|<!--leafWet1-->:|:
+leafWet2|<!--leafWet2-->:|:
+extraHumid1|<!--extraHumid1-->:|:
+extraHumid2|<!--extraHumid2-->:|:
+forecastRule|<!--forecastRule-->:|:
+forecastIcon|<!--forecastIcon-->:|:
+forecastIconFile|<!--forecastIconFile-->:|:
+rxCheckPercent|<!--rxCheckPercent-->:|:
+tenMinuteAvgWindSpeed|<!--tenMinuteAvgWindSpeed-->:|:
+txBatteryStatus|<!--txBatteryStatus-->:|:
+consBatteryVoltage|<!--consBatteryVoltage-->:|:
+wxt510Hail|<!--wxt510Hail-->:|:
+wxt510Hailrate|<!--wxt510Hailrate-->:|:
+wxt510HeatingTemp|<!--wxt510HeatingTemp-->:|:
+wxt510HeatingVoltage|<!--wxt510HeatingVoltage-->:|:
+wxt510SupplyVoltage|<!--wxt510SupplyVoltage-->:|:
+wxt510ReferenceVoltage|<!--wxt510ReferenceVoltage-->:|:
+wxt510RainDuration|<!--wxt510RainDuration-->:|:
+wxt510RainPeakRate|<!--wxt510RainPeakRate-->:|:
+wxt510HailDuration|<!--wxt510HailDuration-->:|:
+wxt510HailPeakRate|<!--wxt510HailPeakRate-->:|:
+wxt510Rain|<!--wxt510Rain-->:|:
+wxt510RainDurationMin|<!--wxt510RainDurationMin-->:|:
+wxt510HailDurationMin|<!--wxt510HailDurationMin-->:|:
+wmr918Humid3|<!--wmr918Humid3-->:|:
+wmr918Pool|<!--wmr918Pool-->:|:
+wmr918Tendency|<!--wmr918Tendency-->:|:
+wmr918WindBatteryStatus|<!--wmr918WindBatteryStatus-->:|:
+wmr918RainBatteryStatus|<!--wmr918RainBatteryStatus-->:|:
+wmr918OutTempBatteryStatus|<!--wmr918OutTempBatteryStatus-->:|:
+wmr918InTempBatteryStatus|<!--wmr918InTempBatteryStatus-->:|:
+wmr918poolTempBatteryStatus|<!--wmr918poolTempBatteryStatus-->:|:
+wmr918extra1BatteryStatus|<!--wmr918extra1BatteryStatus-->:|:
+wmr918extra2BatteryStatus|<!--wmr918extra2BatteryStatus-->:|:
+wmr918extra3BatteryStatus|<!--wmr918extra3BatteryStatus-->:|:
+genExtraTemp1|<!--genExtraTemp1-->:|:
+genExtraTemp2|<!--genExtraTemp2-->:|:
+genExtraTemp3|<!--genExtraTemp3-->:|:
+genExtraTemp4|<!--genExtraTemp4-->:|:
+genExtraTemp5|<!--genExtraTemp5-->:|:
+genExtraTemp6|<!--genExtraTemp6-->:|:
+genExtraTemp7|<!--genExtraTemp7-->:|:
+genExtraTemp8|<!--genExtraTemp8-->:|:
+genExtraTemp9|<!--genExtraTemp9-->:|:
+genExtraTemp10|<!--genExtraTemp10-->:|:
+genExtraTemp11|<!--genExtraTemp11-->:|:
+genExtraTemp12|<!--genExtraTemp12-->:|:
+genExtraTemp13|<!--genExtraTemp13-->:|:
+genExtraTemp14|<!--genExtraTemp14-->:|:
+genExtraTemp15|<!--genExtraTemp15-->:|:
+genExtraTemp16|<!--genExtraTemp16-->:|:
+genExtraHumidity1|<!--genExtraHumidity1-->:|:
+genExtraTempBatteryStatus1|<!--genExtraTempBatteryStatus1-->:|:
+genExtraTempBatteryStatus2|<!--genExtraTempBatteryStatus2-->:|:
+genExtraTempBatteryStatus3|<!--genExtraTempBatteryStatus3-->:|:
+genExtraTempBatteryStatus4|<!--genExtraTempBatteryStatus4-->:|:
+genExtraTempBatteryStatus5|<!--genExtraTempBatteryStatus5-->:|:
+genExtraTempBatteryStatus6|<!--genExtraTempBatteryStatus6-->:|:
+genExtraTempBatteryStatus7|<!--genExtraTempBatteryStatus7-->:|:
+genExtraTempBatteryStatus8|<!--genExtraTempBatteryStatus8-->:|:
+genExtraTempBatteryStatus9|<!--genExtraTempBatteryStatus9-->:|:
+genExtraTempBatteryStatus10|<!--genExtraTempBatteryStatus10-->:|:
+genExtraTempBatteryStatus11|<!--genExtraTempBatteryStatus11-->:|:
+genExtraTempBatteryStatus12|<!--genExtraTempBatteryStatus12-->:|:
+genExtraTempBatteryStatus13|<!--genExtraTempBatteryStatus13-->:|:
+genExtraTempBatteryStatus14|<!--genExtraTempBatteryStatus14-->:|:
+genExtraTempBatteryStatus15|<!--genExtraTempBatteryStatus15-->:|:
+genExtraTempBatteryStatus16|<!--genExtraTempBatteryStatus16-->:|:
+genExtraWindBatteryStatus|<!--genExtraWindBatteryStatus-->:|:
+genExtraOutTempBatteryStatus|<!--genExtraOutTempBatteryStatus-->:|:
+genExtraConsoleBatteryStatus|<!--genExtraConsoleBatteryStatus-->:|:
+genExtraUVBatteryStatus|<!--genExtraUVBatteryStatus-->:|:
+genExtraSolarBatteryStatus|<!--genExtraSolarBatteryStatus-->:|:
+genExtraRainBatteryStatus|<!--genExtraRainBatteryStatus-->:|:
+hiOutsideTemp|<!--hiOutsideTemp-->:|:
+hiOutsideTempTime|<!--hiOutsideTempTime-->:|:
+lowOutsideTemp|<!--lowOutsideTemp-->:|:
+lowOutsideTempTime|<!--lowOutsideTempTime-->:|:
+hiHumidity|<!--hiHumidity-->:|:
+hiHumTime|<!--hiHumTime-->:|:
+lowHumidity|<!--lowHumidity-->:|:
+lowHumTime|<!--lowHumTime-->:|:
+hiDewpoint|<!--hiDewpoint-->:|:
+hiDewpointTime|<!--hiDewpointTime-->:|:
+lowDewpoint|<!--lowDewpoint-->:|:
+lowDewpointTime|<!--lowDewpointTime-->:|:
+hiWindSpeed|<!--hiWindSpeed-->:|:
+hiWindSpeedTime|<!--hiWindSpeedTime-->:|:
+hiBarometer|<!--hiBarometer-->:|:
+hiBarometerTime|<!--hiBarometerTime-->:|:
+lowBarometer|<!--lowBarometer-->:|:
+lowBarometerTime|<!--lowBarometerTime-->:|:
+hiRainRate|<!--hiRainRate-->:|:
+hiRainRateTime|<!--hiRainRateTime-->:|:
+lowWindchill|<!--lowWindchill-->:|:
+lowWindchillTime|<!--lowWindchillTime-->:|:
+hiHeatindex|<!--hiHeatindex-->:|:
+hiHeatindexTime|<!--hiHeatindexTime-->:|:
+hiRadiation|<!--hiRadiation-->:|:
+hiRadiationTime|<!--hiRadiationTime-->:|:
+hiUV|<!--hiUV-->:|:
+hiUVTime|<!--hiUVTime-->:|:
+hiMonthlyOutsideTemp|<!--hiMonthlyOutsideTemp-->:|:
+lowMonthlyOutsideTemp|<!--lowMonthlyOutsideTemp-->:|:
+hiMonthlyHumidity|<!--hiMonthlyHumidity-->:|:
+lowMonthlyHumidity|<!--lowMonthlyHumidity-->:|:
+hiMonthlyDewpoint|<!--hiMonthlyDewpoint-->:|:
+lowMonthlyDewpoint|<!--lowMonthlyDewpoint-->:|:
+hiMonthlyWindSpeed|<!--hiMonthlyWindSpeed-->:|:
+hiMonthlyBarometer|<!--hiMonthlyBarometer-->:|:
+lowMonthlyBarometer|<!--lowMonthlyBarometer-->:|:
+lowMonthlyWindchill|<!--lowMonthlyWindchill-->:|:
+hiMonthlyHeatindex|<!--hiMonthlyHeatindex-->:|:
+hiMonthlyRainRate|<!--hiMonthlyRainRate-->:|:
+hiMonthlyRadiation|<!--hiMonthlyRadiation-->:|:
+hiMonthlyUV|<!--hiMonthlyUV-->:|:
+hiYearlyOutsideTemp|<!--hiYearlyOutsideTemp-->:|:
+lowYearlyOutsideTemp|<!--lowYearlyOutsideTemp-->:|:
+hiYearlyHumidity|<!--hiYearlyHumidity-->:|:
+lowYearlyHumidity|<!--lowYearlyHumidity-->:|:
+hiYearlyDewpoint|<!--hiYearlyDewpoint-->:|:
+lowYearlyDewpoint|<!--lowYearlyDewpoint-->:|:
+hiYearlyWindSpeed|<!--hiYearlyWindSpeed-->:|:
+hiYearlyBarometer|<!--hiYearlyBarometer-->:|:
+lowYearlyBarometer|<!--lowYearlyBarometer-->:|:
+lowYearlyWindchill|<!--lowYearlyWindchill-->:|:
+hiYearlyHeatindex|<!--hiYearlyHeatindex-->:|:
+hiYearlyRainRate|<!--hiYearlyRainRate-->:|:
+hiYearlyRadiation|<!--hiYearlyRadiation-->:|:
+hiYearlyUV|<!--hiYearlyUV-->:|:
+hiAllTimeOutsideTemp|<!--hiAllTimeOutsideTemp-->:|:
+lowAllTimeOutsideTemp|<!--lowAllTimeOutsideTemp-->:|:
+hiAllTimeHumidity|<!--hiAllTimeHumidity-->:|:
+lowAllTimeHumidity|<!--lowAllTimeHumidity-->:|:
+hiAllTimeDewpoint|<!--hiAllTimeDewpoint-->:|:
+lowAllTimeDewpoint|<!--lowAllTimeDewpoint-->:|:
+hiAllTimeWindSpeed|<!--hiAllTimeWindSpeed-->:|:
+hiAllTimeBarometer|<!--hiAllTimeBarometer-->:|:
+lowAllTimeBarometer|<!--lowAllTimeBarometer-->:|:
+lowAllTimeWindchill|<!--lowAllTimeWindchill-->:|:
+hiAllTimeHeatindex|<!--hiAllTimeHeatindex-->:|:
+hiAllTimeRainRate|<!--hiAllTimeRainRate-->:|:
+hiAllTimeRadiation|<!--hiAllTimeRadiation-->:|:
+hiAllTimeUV|<!--hiAllTimeUV-->:|:
+hourrain|<!--hourrain-->:|:
+hourwindrun|<!--hourwindrun-->:|:
+houravgtemp|<!--houravgtemp-->:|:
+houravgwind|<!--houravgwind-->:|:
+hourdomwinddir|<!--hourdomwinddir-->:|:
+houravghumid|<!--houravghumid-->:|:
+houravgdewpt|<!--houravgdewpt-->:|:
+houravgbarom|<!--houravgbarom-->:|:
+hourchangetemp|<!--hourchangetemp-->:|:
+hourchangewind|<!--hourchangewind-->:|:
+hourchangewinddir|<!--hourchangewinddir-->:|:
+hourchangehumid|<!--hourchangehumid-->:|:
+hourchangedewpt|<!--hourchangedewpt-->:|:
+hourchangebarom|<!--hourchangebarom-->:|:
+daywindrun|<!--daywindrun-->:|:
+dayavgtemp|<!--dayavgtemp-->:|:
+dayavgwind|<!--dayavgwind-->:|:
+daydomwinddir|<!--daydomwinddir-->:|:
+dayhighwinddir|<!--dayhighwinddir-->:|:
+dayavghumid|<!--dayavghumid-->:|:
+dayavgdewpt|<!--dayavgdewpt-->:|:
+dayavgbarom|<!--dayavgbarom-->:|:
+daychangetemp|<!--daychangetemp-->:|:
+daychangewind|<!--daychangewind-->:|:
+daychangewinddir|<!--daychangewinddir-->:|:
+daychangehumid|<!--daychangehumid-->:|:
+daychangedewpt|<!--daychangedewpt-->:|:
+daychangebarom|<!--daychangebarom-->:|:
+weekwindrun|<!--weekwindrun-->:|:
+weekavgtemp|<!--weekavgtemp-->:|:
+weekavgwind|<!--weekavgwind-->:|:
+weekdomwinddir|<!--weekdomwinddir-->:|:
+weekavghumid|<!--weekavghumid-->:|:
+weekavgdewpt|<!--weekavgdewpt-->:|:
+weekavgbarom|<!--weekavgbarom-->:|:
+weekchangetemp|<!--weekchangetemp-->:|:
+weekchangewind|<!--weekchangewind-->:|:
+weekchangewinddir|<!--weekchangewinddir-->:|:
+weekchangehumid|<!--weekchangehumid-->:|:
+weekchangedewpt|<!--weekchangedewpt-->:|:
+weekchangebarom|<!--weekchangebarom-->:|:
+monthtodatewindrun|<!--monthtodatewindrun-->:|:
+monthtodateavgtemp|<!--monthtodateavgtemp-->:|:
+monthtodateavgwind|<!--monthtodateavgwind-->:|:
+monthtodatedomwinddir|<!--monthtodatedomwinddir-->:|:
+monthtodateavghumid|<!--monthtodateavghumid-->:|:
+monthtodateavgdewpt|<!--monthtodateavgdewpt-->:|:
+monthtodateavgbarom|<!--monthtodateavgbarom-->:|:
+monthtodatemaxtempdate|<!--monthtodatemaxtempdate-->:|:
+monthtodatemintempdate|<!--monthtodatemintempdate-->:|:
+monthtodateminchilldate|<!--monthtodateminchilldate-->:|:
+monthtodatemaxheatdate|<!--monthtodatemaxheatdate-->:|:
+monthtodatemaxhumiddate|<!--monthtodatemaxhumiddate-->:|:
+monthtodateminhumiddate|<!--monthtodateminhumiddate-->:|:
+monthtodatemaxdewptdate|<!--monthtodatemaxdewptdate-->:|:
+monthtodatemindewptdate|<!--monthtodatemindewptdate-->:|:
+monthtodatemaxbaromdate|<!--monthtodatemaxbaromdate-->:|:
+monthtodateminbaromdate|<!--monthtodateminbaromdate-->:|:
+monthtodatemaxwinddate|<!--monthtodatemaxwinddate-->:|:
+monthtodatemaxgustdate|<!--monthtodatemaxgustdate-->:|:
+monthtodatemaxrainratedate|<!--monthtodatemaxrainratedate-->:|:
+yeartodatewindrun|<!--yeartodatewindrun-->:|:
+yeartodateavgtemp|<!--yeartodateavgtemp-->:|:
+yeartodateavgwind|<!--yeartodateavgwind-->:|:
+yeartodatedomwinddir|<!--yeartodatedomwinddir-->:|:
+yeartodateavghumid|<!--yeartodateavghumid-->:|:
+yeartodateavgdewpt|<!--yeartodateavgdewpt-->:|:
+yeartodateavgbarom|<!--yeartodateavgbarom-->:|:
+yeartodatemaxtempdate|<!--yeartodatemaxtempdate-->:|:
+yeartodatemintempdate|<!--yeartodatemintempdate-->:|:
+yeartodateminchilldate|<!--yeartodateminchilldate-->:|:
+yeartodatemaxheatdate|<!--yeartodatemaxheatdate-->:|:
+yeartodatemaxhumiddate|<!--yeartodatemaxhumiddate-->:|:
+yeartodateminhumiddate|<!--yeartodateminhumiddate-->:|:
+yeartodatemaxdewptdate|<!--yeartodatemaxdewptdate-->:|:
+yeartodatemindewptdate|<!--yeartodatemindewptdate-->:|:
+yeartodatemaxbaromdate|<!--yeartodatemaxbaromdate-->:|:
+yeartodateminbaromdate|<!--yeartodateminbaromdate-->:|:
+yeartodatemaxwinddate|<!--yeartodatemaxwinddate-->:|:
+yeartodatemaxgustdate|<!--yeartodatemaxgustdate-->:|:
+yeartodatemaxrainratedate|<!--yeartodatemaxrainratedate-->:|:
+alltimeavgtemp|<!--alltimeavgtemp-->:|:
+alltimeavgwind|<!--alltimeavgwind-->:|:
+alltimedomwinddir|<!--alltimedomwinddir-->:|:
+alltimeavghumid|<!--alltimeavghumid-->:|:
+alltimeavgdewpt|<!--alltimeavgdewpt-->:|:
+alltimeavgbarom|<!--alltimeavgbarom-->:|:
+alltimemaxtempdate|<!--alltimemaxtempdate-->:|:
+alltimemintempdate|<!--alltimemintempdate-->:|:
+alltimeminchilldate|<!--alltimeminchilldate-->:|:
+alltimemaxheatdate|<!--alltimemaxheatdate-->:|:
+alltimemaxhumiddate|<!--alltimemaxhumiddate-->:|:
+alltimeminhumiddate|<!--alltimeminhumiddate-->:|:
+alltimemaxdewptdate|<!--alltimemaxdewptdate-->:|:
+alltimemindewptdate|<!--alltimemindewptdate-->:|:
+alltimemaxbaromdate|<!--alltimemaxbaromdate-->:|:
+alltimeminbaromdate|<!--alltimeminbaromdate-->:|:
+alltimemaxwinddate|<!--alltimemaxwinddate-->:|:
+alltimemaxgustdate|<!--alltimemaxgustdate-->:|:
+alltimemaxrainratedate|<!--alltimemaxrainratedate-->:|:
+windSpeed_ms|<!--windSpeed_ms-->:|:
+windGustSpeed_ms|<!--windGustSpeed_ms-->:|:
+intervalAvgWindSpeed_ms|<!--intervalAvgWindSpeed_ms-->:|:
+tenMinuteAvgWindSpeed_ms|<!--tenMinuteAvgWindSpeed_ms-->:|:
+hiWindSpeed_ms|<!--hiWindSpeed_ms-->:|:
+hiMonthlyWindSpeed_ms|<!--hiMonthlyWindSpeed_ms-->:|:
+hiYearlyWindSpeed_ms|<!--hiYearlyWindSpeed_ms-->:|:
+houravgwind_ms|<!--houravgwind_ms-->:|:
+dayavgwind_ms|<!--dayavgwind_ms-->:|:
+weekavgwind_ms|<!--weekavgwind_ms-->:|:
+monthtodateavgwind_ms|<!--monthtodateavgwind_ms-->:|:
+yeartodateavgwind_ms|<!--yeartodateavgwind_ms-->:|:
+hourchangewind_ms|<!--hourchangewind_ms-->:|:
+daychangewind_ms|<!--daychangewind_ms-->:|:
+weekchangewind_ms|<!--weekchangewind_ms-->:|:
+windSpeed_kts|<!--windSpeed_kts-->:|:
+windGustSpeed_kts|<!--windGustSpeed_kts-->:|:
+intervalAvgWindSpeed_kts|<!--intervalAvgWindSpeed_kts-->:|:
+tenMinuteAvgWindSpeed_kts|<!--tenMinuteAvgWindSpeed_kts-->:|:
+hiWindSpeed_kts|<!--hiWindSpeed_kts-->:|:
+hiMonthlyWindSpeed_kts|<!--hiMonthlyWindSpeed_kts-->:|:
+hiYearlyWindSpeed_kts|<!--hiYearlyWindSpeed_kts-->:|:
+houravgwind_kts|<!--houravgwind_kts-->:|:
+dayavgwind_kts|<!--dayavgwind_kts-->:|:
+weekavgwind_kts|<!--weekavgwind_kts-->:|:
+monthtodateavgwind_kts|<!--monthtodateavgwind_kts-->:|:
+yeartodateavgwind_kts|<!--yeartodateavgwind_kts-->:|:
+hourchangewind_kts|<!--hourchangewind_kts-->:|:
+daychangewind_kts|<!--daychangewind_kts-->:|:
+weekchangewind_kts|<!--weekchangewind_kts-->:|:
+'; // END_OF_RAW_DATA_LINES;
+
+// end of generation script
+
+// put data in  array
+//
+$WX = array();
+global $WX;
+$WXComment = array();
+$data = explode(":|:",$rawdatalines);
+$nscanned = 0;
+foreach ($data as $v => $line) {
+  list($vname,$vval,$vcomment) = explode("|",trim($line).'|||');
+  if ($vname <> "" and strpos($vval,'$') === false) {
+    $WX[$vname] = trim($vval);
+    if($vcomment <> "") { $WXComment[$vname] = trim($vcomment); }
+  }
+  $nscanned++;
+}
+
+echo json_encode($WX, JSON_NUMERIC_CHECK);
+
+if(isset($_REQUEST['debug'])) {
+  print "<!-- loaded $nscanned $WXsoftware \$WX[] entries -->\n";
+}
+
+if (isset($_REQUEST["sce"]) and strtolower($_REQUEST["sce"]) == "dump" ) {
+
+  print "<pre>\n";
+  print "// \$WX[] array size = $nscanned entries.\n";
+  foreach ($WX as $key => $val) {
+	  $t =  "\$WX['$key'] = '$val';";
+	  if(isset($WXComment[$key])) {$t .=  " $WXComment[$key]"; }
+	  print "$t\n";
+  }
+  print "</pre>\n";
+
+}
+if(file_exists("WV-defs.php")) { include_once("WV-defs.php"); }
+?>

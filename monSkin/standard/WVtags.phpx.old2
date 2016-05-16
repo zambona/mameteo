@@ -1,0 +1,171 @@
+<?php
+// Author: Ken True - webmaster-weather.org
+// gen-WVtags.php 
+// Purpose: read the tags.txt file from wview (linux) and generate the WVtags.htx file for use with
+//          wview to substitute weather values for WV tags in WVtags.php
+//
+// Version 1.00 - 23-Jun-2012 - Initial release
+// --------------------------------------------------------------------------
+// allow viewing of generated source
+$Version = 'gen-WVtags.php - V1.00 - 23-Jun-2012';
+$WXsoftware = 'WV'; // do NOT change this
+$defsFile = $WXsoftware . '-defs.php'; // do NOT change this .. name of definitions file
+
+if (isset($_REQUEST["sce"]) and strtolower($_REQUEST["sce"]) == "view" ) {
+//--self downloader --
+   $filenameReal = __FILE__;
+   $download_size = filesize($filenameReal);
+   header("Pragma: public");
+   header("Cache-Control: private");
+   header("Cache-Control: no-cache, must-revalidate");
+   header("Content-type: text/plain");
+   header("Accept-Ranges: bytes");
+   header("Content-Length: $download_size");
+   header("Connection: close");
+   
+   readfile($filenameReal);
+   exit;
+}
+
+$inFile = 'tags.txt';
+
+if(!file_exists($inFile)) {
+	print "<h3>Program: $Version</h3>\n";
+	print "<h1>Error: file '$inFile' not found.</h1>\n";
+	print "<p>Make sure '$inFile' is in this same directory.</p>";
+	return;
+}
+
+$showComments = false;
+if(isset($_REQUEST['comments'])) {
+	$showComments = (strtolower($_REQUEST['comments']) == 'yes')?true:false;
+}
+
+$rawrecs = file($inFile);
+header("Content-type: text/plain");
+print_start();
+foreach ($rawrecs as $rec) {
+/*
+input:
+Parameters (Description)
+wview Tag	Variable
+wvar	$STNNAME$	Station name
+wvar	$CURDATE_MDY$	Date (ex. January 1, 2004) Date
+
+output:
+STNNAME|$STNNAME$|// Station name:|:
+CURDATE_MDY|$CURDATE_MDY$|// Date (ex. January 1, 2004) Date:|:
+
+*/
+  preg_match('|^wvar\t(\S+)\t(.*)$|i',$rec,$matches);
+  if(!isset($matches[1])) {continue;}
+  $ourname = $matches[1];
+  $descr = '';
+  if(isset($matches[2])) {$descr = $matches[2];}
+  $varname = "<!--$ourname-->";
+  $comment = '';
+  if($showComments) {
+	  $comment = '|// '.$descr;
+  }
+  print "$ourname|$varname$comment:|:\n";
+	
+	
+}
+print_end();
+
+// end of mainline
+function print_start() {
+	global $Version,$WXsoftware,$defsFile,$inFile;
+print '<?php
+/*
+ File: WVtags.phpx
+
+ Purpose: load wview variables into a $WX[] array for use with the Canada/World/USA template sets
+
+ Instructions:  
+ Save this page as WVtags.phpx and place in your /etc/wview/html directory as WVtags.phpx
+ 
+ Edit your /etc/wview/html-templates.conf file and add:
+ 
+ # tags file for Saratoga-Weather V3 template set
+ WVtags.phpx
+ 
+ 
+ 
+ 
+
+ Author: Ken True - webmaster@saratoga-weather.org
+
+';
+print " (created by $Version)\n";
+print "\n These tags generated on ".gmdate('Y-m-d H:m:s T',time())."\n";
+print "   From $inFile updated ".gmdate('Y-m-d H:m:s T',filemtime($inFile))."\n\n";
+
+print '*/
+// --------------------------------------------------------------------------
+
+// allow viewing of generated source
+
+if (isset($_REQUEST["sce"]) and strtolower($_REQUEST["sce"]) == "view" ) {
+//--self downloader --
+   $filenameReal = __FILE__;
+   $download_size = filesize($filenameReal);
+   header("Pragma: public");
+   header("Cache-Control: private");
+   header("Cache-Control: no-cache, must-revalidate");
+   header("Content-type: text/plain");
+   header("Accept-Ranges: bytes");
+   header("Content-Length: $download_size");
+   header("Connection: close");
+   
+   readfile($filenameReal);
+   exit;
+}
+' . 
+"\$WXsoftware = '$WXsoftware';  
+\$defsFile = '$defsFile';  // filename with \$varnames = \$WX['$WXsoftware-varnames']; equivalents\n " .
+'
+$rawdatalines = \'
+';
+}
+
+function print_end() {
+global $WXsoftware, $defsFile;	
+print '\'; // END_OF_RAW_DATA_LINES;
+
+// end of generation script
+
+// put data in  array
+//
+$WX = array();
+global $WX;
+$WXComment = array();
+$data = explode(":|:",$rawdatalines);
+$nscanned = 0;
+foreach ($data as $v => $line) {
+  list($vname,$vval,$vcomment) = explode("|",trim($line).\'|||\');
+  if ($vname <> "" and strpos($vval,\'$\') === false) {
+    $WX[$vname] = trim($vval);
+    if($vcomment <> "") { $WXComment[$vname] = trim($vcomment); }
+  }
+  $nscanned++;
+}
+if(isset($_REQUEST[\'debug\'])) {
+  print "<!-- loaded $nscanned $WXsoftware \$WX[] entries -->\n";
+}
+
+if (isset($_REQUEST["sce"]) and strtolower($_REQUEST["sce"]) == "dump" ) {
+
+  print "<pre>\n";
+  print "// \$WX[] array size = $nscanned entries.\n";
+  foreach ($WX as $key => $val) {
+	  $t =  "\$WX[\'$key\'] = \'$val\';";
+	  if(isset($WXComment[$key])) {$t .=  " $WXComment[$key]"; }
+	  print "$t\n";
+  }
+  print "</pre>\n";
+
+}
+if(file_exists("'.$defsFile.'")) { include_once("'.$defsFile.'"); }
+?>';
+}

@@ -1,0 +1,87 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot?b3b930');
+	src:url('fonts/icomoon.eot?b3b930#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.ttf?b3b930') format('truetype'),
+		url('fonts/icomoon.woff?b3b930') format('woff'),
+		url('fonts/icomoon.svg?b3b930#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'icomoon' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-cloud-storage:before {
+	content: "\e900";
+}
+.icon-cloud310:before {
+	content: "\e901";
+}
+.icon-cloudy19:before {
+	content: "\e902";
+}
+.icon-foggy5:before {
+	content: "\e903";
+}
+.icon-hot-weather:before {
+	content: "\e904";
+}
+.icon-lightning31:before {
+	content: "\e905";
+}
+.icon-rain20:before {
+	content: "\e906";
+}
+.icon-rain54:before {
+	content: "\e907";
+}
+.icon-raindrops2:before {
+	content: "\e908";
+}
+.icon-rainy12:before {
+	content: "\e909";
+}
+.icon-river3:before {
+	content: "\e90a";
+}
+.icon-snow269:before {
+	content: "\e90b";
+}
+.icon-snowing9:before {
+	content: "\e90c";
+}
+.icon-sun93:before {
+	content: "\e90d";
+}
+.icon-sun94:before {
+	content: "\e90e";
+}
+.icon-sunny23:before {
+	content: "\e90f";
+}
+.icon-thermometer10:before {
+	content: "\e910";
+}
+.icon-warm:before {
+	content: "\e911";
+}
+.icon-water16:before {
+	content: "\e912";
+}
+.icon-windy3:before {
+	content: "\e913";
+}
+

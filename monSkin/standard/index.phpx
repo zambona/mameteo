@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>D°</title>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+  <link rel="stylesheet" href="w3.css">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+  <!--<link rel="stylesheet" href="monSkin.css"/>-->
+
+  <style>
+    /* Set the sidenav to full-width when the screen is less than 600 pixels wide //style=" background-color: #f0f2f5"*/
+    @media (max-width: 500px) {
+      .w3-sidenav {
+          width: 100% !important;
+      }
+    }
+
+/*{border: 1px solid black;}
+
+  </style>
+  
+<body ><!--style="background-color: #deded2;"--><!--style="background-color: #2e2e38;"-->
+
+<?php include("header.php"); ?>
+    <div class="w3-margin-0 w3-pale-blue w3-hidden">
+    
+      <div  class="w3-container w3-center">
+        <h1 class="w3-title w3-xxlarge w3-animate-zoom w3-wide w3-text-indigo">Ma station météo</h1>
+      </div>
+   
+</div>
+
+
+  <div id="main" > <!-- Start main --> 
+    <div class="w3-row w3-pale-blue"> 
+<!--============================================================TEMPERATURES====================================-->
+      <div class="w3-quarter w3-padding">
+        <div class="w3-container w3-border w3-sand w3-card-2">
+          <div class="w3-padding w3-text-grey w3-bottombar">            
+            <div  class="w3-row">            
+              <i class="w3-content w3-xxlarge icon-warm w3-circle w3-left w3-red w3-padding-small"></i>
+              <div class="w3-left">
+                <h4 class="w3-content w3-text-red"><strong>TEMPERATURES</strong>
+                </h4>
+                <br>
+                <div class="w3-right">
+              <table class="w3-table">
+                <tr class="w3-small">
+                  <th class="w3-center">extérieures</th>
+                  <th class="w3-right">intérieures</th>
+                </tr>
+                <tr class="w3-large">
+                  <th class=" w3-center"><!--outsideTemp--><!--tempUnit--></th>
+                  <th class=" w3-center"><!--insideTemp--><!--tempUnit--></th>
+                </tr>
+                </table>
+                </div>
+              </div>
+            </div>
+           </div>        
+          <br>
+          <div id="container-speed" class="w3-border" style="height: 300px;"></div>
+          <br>
+          <div class="w3-container w3-text-grey w3-padding-0">
+            <table class="w3-table w3-bordered" >
+              <tr>
+                <td>T°extérieure</td>
+                <td><!--outsideTemp--><!--tempUnit--></td>
+              </tr>
+              <tr>
+                <td>T°intérieure</td>
+                <td><!--insideTemp--><!--tempUnit--></td>
+              </tr>
+              <tr>
+                <td>Indice de chaleur </td>
+                <td><!--windChill--><!--tempUnit--></td>
+              </tr>
+              <tr>
+                <td>Température ressentie</td>
+                <td><!--apparentTemp--><!--tempUnit--></td>
+              </tr> 
+            </table>
+          </div>
+        </div>
+      </div>
+
+<!--============================================================PRESSIONS=================================================================-->
+  <div class="w3-quarter w3-padding">
+        <div class="w3-container w3-border w3-sand w3-card-2 ">
+          <div class=" w3-padding w3-text-grey w3-bottombar">
+            <div class="w3-row">
+              <i class="w3-content w3-xxlarge icon-cloud310  w3-circle w3-left w3-teal w3-padding-small"></i>
+              <div  class="w3-left">
+                <h4 class="w3-content w3-text-teal"><strong>PRESSIONS</strong>
+                </h4>
+                <br>
+              <table class="w3-table">
+                <tr class="w3-large">
+                  <th class=" w3-center"><!--barometer-->&nbsp;<!--barUnit--></th>
+                </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div id="container-press" class="w3-border" style="height: 300px;"></div>   
+          <br>
+          <div class="w3-container w3-padding-0">
+            <table class="w3-table w3-text-grey w3-bordered" >
+              <tr>
+                <td>Pression atmo</td>
+                <td><!--barometer-->&nbsp;<!--barUnit-->&nbsp;<!--baromtrend--></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+       
+
+<!--============================================================PRECIPITATIONS===============================================================-->    
+<div class="w3-quarter w3-padding">
+        <div class="w3-container w3-border w3-sand w3-card-2 ">
+          <div class=" w3-padding w3-text-grey w3-bottombar">
+            <div class="w3-row">
+              <i class="w3-content w3-xxlarge icon-rain20  w3-circle w3-left w3-blue w3-padding-small"></i>
+              <div class="w3-left">
+                <h4 class="w3-content w3-text-blue"><strong>PRECIPITATIONS</strong>
+                </h4>
+                <br>
+              <table class="w3-table ">
+                <tr class="w3-large">
+                  <th class=" w3-center"><!--dailyRain-->&nbsp;<!--rainUnit--></th>
+                </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div id="container-prec" class="w3-border" style="height: 300px;"></div>   
+          <br>
+          <div class="w3-container w3-padding-0">
+            <table class="w3-table w3-text-grey w3-bordered" >
+              <tr>
+              <td>Point de rosée</td>
+              <td><!--outsideDewPt--><!--tempUnit--></td>
+            </tr>
+            <tr>
+              <td>Humidité </td>
+              <td><!--outsideHumidity--><!--humUnit--></td>
+            </tr>
+            <tr>
+              <td>Précipitations:</td>
+              <td><!--dailyRain-->&nbsp;<!--rainUnit--></td>
+            </tr>
+            <tr>
+              <td>Précipitations:</td>
+              <td><!--dailyRain-->&nbsp;<!--rainUnit--></td>
+            </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      
+
+<!--============================================================VENTS=============================================================-->
+<div class="w3-quarter w3-padding">
+        <div class="w3-container w3-border w3-sand w3-card-2 ">
+          <div class=" w3-padding w3-text-grey w3-bottombar ">
+            <div class="w3-row">
+              <i class="w3-content w3-xxlarge icon-windy3 w3-circle w3-left w3-brown  w3-padding-small"></i>
+              <div class="w3-left">
+                <h4 class="w3-content w3-text-brown"><strong>VENT</strong>
+                </h4>
+                <br>
+              <table class="w3-table">
+                <tr class="w3-large">
+                  <th class=" w3-center"><!--windDirection-->&nbsp;<!--windSpeed-->&nbsp;<!--windUnit--></th>
+                </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div id="container-vent" class="w3-border" style="height: 300px;"></div>   
+          <br>
+          <div class="w3-container w3-text-grey w3-padding-0">
+            <table class="w3-table w3-bordered" >
+              <tr>
+              <td>Refroidissement éolien:</td>
+              <td><!--windChill--><!--tempUnit--></td>
+            </tr>
+            <tr>
+              <td>Vent</td>
+              <td><!--windDirection-->&nbsp;<!--windSpeed-->&nbsp;<!--windUnit--></td>
+            </tr>
+            <tr>
+              <td>Vent Max</td>
+              <td><!--hiWindSpeed--> <!--windUnit-->  <!--hiWindSpeedTime--></td>
+            </tr>
+            <tr>
+              <td>Moyenne vent</td>
+              <td><!--intervalAvgWindSpeed--> <!--windUnit--></td>
+            </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+     
+<!--==================================================================================================================================-->      
+    </div>
+
+
+
+<!--===================================================METEOGRAMME====================================================--> 
+<div class="w3-pale-red w3-row w3-margin-0 w3-padding-0">
+  <div class="container w3-quarter" style="height: 680%">
+    <div class="w3-row w3-margin-0  w3-padding-64">
+      <div id="container" class="w3-col m8" style="height: 400px">
+        <i class="fa fa-spinner fa-spin"></i> Loading data from external source  
+      </div>
+      <div id="tool" class="w3-quarter w3-right w3-card-2 w3-padding-xxlarge w3-sand" style="height: 320px"></div>   
+    </div>
+  </div>
+  </div>
+<!--==================================================================================================================================--> 
+
+
+    <div class="w3-row w3-pale-green">
+      
+<!--===================================================RADAR1=========================================================-->    
+      <div id="id102" class="w3-modal">
+        <div class="w3-modal-content w3-center w3-animate-zoom">
+          <div class="w3-container">
+            <header class="w3-header"><span onclick="document.getElementById('id102').style.display='none'" class="w3-closebtn w3-xlarge">X</span>
+            </header>
+            <div id="container1" class="w3-container">
+              <img src='http://www.meteo60.fr/radars/animation-radar-france.gif' style="height: 100%; width: 100%"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w3-third w3-container">
+        <header class="w3-center w3-wide w3-padding-xlarge w3-margin-small">
+          <h4>SATELLITE DES PRECIPITATIONS</h4>
+          </header>
+        <div class="w3-content w3-image w3-center" role="button" onclick="document.getElementById('id102').style.display='block'" >
+          <img src='http://www.meteo60.fr/radars/animation-radar-france.gif' />
+          </div>
+        </div>
+<!--===================================================RADAR2=========================================================-->
+     <div id="id103" class="w3-modal">
+        <div class="w3-modal-content w3-center w3-animate-zoom">
+          <div class="w3-container">
+            <header class="w3-header"><span onclick="document.getElementById('id103').style.display='none'" class="w3-closebtn w3-xlarge">X</span>
+            </header>
+            <div id="container2" class="w3-container" >
+              <img src='http://www.meteo60.fr/satellites/animation-satellite-ir-france.gif' style="width: 100%;"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w3-third w3-container" role="button" onclick="document.getElementById('id103').style.display='block'">
+        <header class="w3-center w3-wide w3-padding-xlarge w3-margin-small">
+          <h4>SATELLITE NUAGES IR</h4>
+          </header>
+        <div class="w3-content w3-image" >
+          <img src='http://www.meteo60.fr/satellites/animation-satellite-ir-france.gif'>
+          </div>
+        </div>      
+<!--===================================================================================================================-->
+      <div id="id104" class="w3-modal">
+        <div class="w3-modal-content w3-center w3-animate-zoom">
+          <div class="w3-container">
+            <header class="w3-header"><span onclick="document.getElementById('id104').style.display='none'" class="w3-closebtn w3-xlarge">X</span>
+            </header>
+            <div id="container3" class="w3-container" >
+              <img src='http://www.meteo60.fr/satellites/animation-satellite-visible-france.gif' style="width: 100%;"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w3-third w3-container">
+        <div>
+          <header class="w3-center w3-wide w3-padding-xlarge w3-margin-small">
+            <h4>SATELLITE NUAGES VISIBLES</h4>
+            </header> 
+        </div>
+        <div class="w3-content w3-image" role="button" onclick="document.getElementById('id104').style.display='block'">
+          <img src='http://www.meteo60.fr/satellites/animation-satellite-visible-france.gif' >
+          </div>
+        </div>
+    </div>
+
+    <div class="w3-row w3-yellow">
+
+      <div class="w3-third">
+        <div class="w3-center w3-light-grey w3-padding">
+          <h3>Previsions Météo France</h3>
+        </div>
+      </div>
+      <div class="w3-third">
+        <div class="w3-center w3-light-grey w3-padding">
+          <h3>Google maps</h3>
+        </div>
+      </div>
+      <div class="w3-third">
+        <div class="w3-light-grey w3-padding">
+          <h3>Wiki</h3>
+        </div>
+      </div>
+
+    </div>
+
+    <br>
+
+    <footer class="w3-container w3-blue-grey">
+      <h5>Footer</h5>
+      <p>Crédits</p>
+    </footer>
+
+</div> <!-- End main -->
+
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
+  <script src="jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+  <script src="http://code.highcharts.com/highcharts-more.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="jspresentation.js"></script>
+  <script src="bootstrapformhelpers/js/bootstrap-formhelpers.js"></script>
+  <script src="jquery.timepicker.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+
+<script src="chartIndex.js"></script>
+<script>
+function myFunction(id) {
+    document.getElementById(id).classList.toggle("w3-show");
+}
+</script>
+ 
+    </body>
+</html>
