@@ -5,7 +5,7 @@ function getArchive()
 {
     try 
       {
-        $bdd = new PDO("mysql:host=localhost;dbname=wviewDB;charset=utf8",'root','MpBeTb57');
+        $bdd = new PDO("mysql:host=localhost;dbname=wviewDB;charset=utf8",'user','pass');
       }
     catch(Exception $e)
       {
@@ -42,7 +42,7 @@ function getInterval($dateDebut, $dateFin)
 {
   try 
       {
-          $bdd = new PDO("mysql:host=localhost;dbname=wviewDB;charset=utf8",'root','MpBeTb57');
+          $bdd = new PDO("mysql:host=localhost;dbname=wviewDB;charset=utf8",'user','pass');
       }
   catch(Exception $e)
       {
@@ -82,7 +82,7 @@ function getInterval2($dateDebut, $dateFin)
 {
   try 
       {
-          $bdd = new PDO("mysql:host=localhost;dbname=wviewDB;charset=utf8", 'root','MpBeTb57');
+          $bdd = new PDO("mysql:host=localhost;dbname=wviewDB;charset=utf8", 'user','pass');
       }
   catch(Exception $e)
       {
@@ -159,7 +159,7 @@ function getIntervalPression($dateDebut, $dateFin)
 {
   try 
       {
-          $bdd = new PDO("mysql:host=localhost;dbname=wviewDB;charset=utf8",'root','MpBeTb57');
+          $bdd = new PDO("mysql:host=localhost;dbname=wviewDB;charset=utf8",'user','pass');
       }
   catch(Exception $e)
       {
@@ -198,7 +198,7 @@ function getIntervalPrecip($dateDebut, $dateFin)
 {
   try 
       {
-          $bdd = new PDO("mysql:host=localhost;dbname=wviewDB;charset=utf8",'root','MpBeTb57');
+          $bdd = new PDO("mysql:host=localhost;dbname=wviewDB;charset=utf8",'user','pass');
       }
   catch(Exception $e)
       {
@@ -238,7 +238,7 @@ function getIntervalVent($dateDebut, $dateFin)
 {
   try 
       {
-          $bdd = new PDO("mysql:host=localhost;dbname=wviewDB;charset=utf8",'root','MpBeTb57');
+          $bdd = new PDO("mysql:host=localhost;dbname=wviewDB;charset=utf8",'user','pass');
       }
   catch(Exception $e)
       {
